@@ -1,0 +1,168 @@
+
+
+/*@font-face {*/
+    /*font-family: 'iconfont';  !* project id 940935 *!*/
+    /*src: url('//at.alicdn.com/t/font_940935_7q3eamxx9is.eot');*/
+    /*src: url('//at.alicdn.com/t/font_940935_7q3eamxx9is.eot?#iefix') format('embedded-opentype'),*/
+    /*url('//at.alicdn.com/t/font_940935_7q3eamxx9is.woff2') format('woff2'),*/
+    /*url('//at.alicdn.com/t/font_940935_7q3eamxx9is.woff') format('woff'),*/
+    /*url('//at.alicdn.com/t/font_940935_7q3eamxx9is.ttf') format('truetype'),*/
+    /*url('//at.alicdn.com/t/font_940935_7q3eamxx9is.svg#iconfont') format('svg');*/
+/*}*/
+
+@font-face {
+    font-family: xi;
+    src: url('../font/FZZKFW.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'iconfont';  /* project id 940935 */
+    src: url('//at.alicdn.com/t/font_940935_z650cj8f7m.eot');
+    src: url('//at.alicdn.com/t/font_940935_z650cj8f7m.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_940935_z650cj8f7m.woff2') format('woff2'),
+    url('//at.alicdn.com/t/font_940935_z650cj8f7m.woff') format('woff'),
+    url('//at.alicdn.com/t/font_940935_z650cj8f7m.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_940935_z650cj8f7m.svg#iconfont') format('svg');
+}
+
+.iconfont{
+    font-family:"iconfont" !important;
+    font-size:16px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+*{
+ padding:0;
+ margin:0;
+ box-sizing:border-box;
+    /**/
+}
+li{
+    list-style-type:none;
+}
+a{
+    text-decoration: none;
+    color:inherit;
+}
+html{
+    background:rgb(245,245,245);
+
+}
+
+.container{
+    width:1200px;
+    margin:0 auto;
+}
+.clear{
+    zoom:1;
+}
+.clear::after{
+    clear:both;
+    content:".";
+    display:block;
+    width:0;
+    height:0;
+    visibility:hidden;
+}
+
+
+
+
+.icon-10{
+    font-size:10px;
+    margin-right:2px;
+}
+.icon-18{
+    font-size:18px;
+}
+.icon-14{
+    font-size:14px;
+    margin-right:3px;
+}
+.icon-11{
+    font-size:11px;
+    margin-right:3px;
+    vertical-align: middle;
+}
+/*.icon_comment{*/
+    /*display:inline-block;*/
+    /*width: 18px;*/
+    /*height:15px;*/
+    /*vertical-align:bottom;*/
+    /*background-image:url(~assets/img/comment.png);*/
+    /*background-repeat: no-repeat;*/
+    /*background-size:contain;*/
+    /*background-position: center left;*/
+/*}*/
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    background: #e4e4e4;
+}
+::-webkit-scrollbar-thumb{
+    background:rgb(67,229,86);
+    border-radius:10px;
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+}
+
+
+
+.details .content img{
+    max-width:868px !important;
+}
+.details .content h2{
+    font-size:16px;
+    font-weight:700;
+    margin-top:30px !important;
+    margin-bottom:15px !important;
+    padding-left:10px;
+    border-left:5px solid rgb(106,230,120);
+    border-bottom:1px solid rgb(106,230,120);
+    height:32px;
+    line-height:32px;
+    border-radius:1px;
+    color:rgb(120,120,120);
+    background:rgb(251,251,251);
+}
+.details .content a[target=nuxt]{
+    color:#fff;
+    cursor:pointer;
+    padding:1px 2px;
+    background:rgba(106,230,120);
+}
+
+.details .content p{
+    margin-top:15px;
+    font-size:14px;
+    letter-spacing: 0.2px;
+    color:rgb(80,80,80);
+    line-height:200%;
+}
+.details .content p.text{
+    text-indent:32px;
+}
+.details .content p.border-img{
+    /*padding-right:1px;*/
+    /*border:1px solid #06aaff;*/
+}
+.details .content code:not([class*=language]){
+    padding:2px 5px;
+    background:#f7f7f9;
+    border:1px solid #e3edf3;
+    border-radius:3px;
+    color:#d14;
+}
+.details .content .code-toolbar{
+    border-radius:4px;
+    overflow: hidden;
+}
+.details .content .code-toolbar > .line-numbers{
+    border:1px solid rgba(7,17,27,0.1);
+}
+.details .content .code-toolbar > .line-numbers code[class*=language]{
+    border-left:none;
+    box-shadow: none;
+}
+
