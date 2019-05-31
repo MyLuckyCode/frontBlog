@@ -5,6 +5,9 @@
 ## Build Setup
 
 ``` bash
+# 先安装 Nuxt
+$ npm install --save nuxt
+
 # install dependencies
 $ npm install # Or yarn install
 
