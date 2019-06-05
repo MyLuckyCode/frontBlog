@@ -23,7 +23,6 @@
             let caChe = this.$store.state.caChe;
             if(Cookie.is('config') && caChe){
                 if(Object.keys(this.$store.state.config).length==0){
-                    console.log( Cookie.get( 'config' ) );
                     let config = JSON.parse(Cookie.get('config'));
                     this.$store.commit('setConfig',config[0]);
                 }

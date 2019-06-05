@@ -29,7 +29,6 @@ import Cookie from '~/common/cookie.js';
                 this.hot=JSON.parse(Cookie.get('hot'));
             }else {
                 axios.get(this.$store.state.url.getHotArticle).then((res)=>{
-                    console.log( res );
                     this.hot=res.data;
                     Cookie.set('hot',JSON.stringify(res.data));
                 })

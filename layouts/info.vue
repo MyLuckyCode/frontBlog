@@ -17,7 +17,6 @@
         },
         async created(){
             this.$nextTick(()=>{
-                console.log( document.documentElement.clientHeight );
                 this.$refs.main.style.minHeight=(document.documentElement.clientHeight-60-150)+'px';
             })
 

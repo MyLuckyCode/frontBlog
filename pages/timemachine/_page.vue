@@ -55,7 +55,6 @@ import axios from 'axios';
                     page_size:content.store.state.time.page_size
                 }
             });
-            console.log(content)
             return {timeData:list.data}
         },
         async fetch(content){
@@ -71,14 +70,9 @@ import axios from 'axios';
         data(){
             return {
                 total:1,
-                timeData:[{
-                    flag:false,
-                    content_flag:false,
-                    date:'2018-11-30',
-                    content:'对网站进行重构，后台采用php自主开发以及MVC模式进行重构，采用vue+nuxt.js进行服务器渲染'
-                }],
+                timeData:[],
                 flag:false,
-//                item_index:0,
+                item_index:0,
                 content_index:0,
                 seat:true
             }
