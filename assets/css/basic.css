@@ -110,7 +110,7 @@ html{
 
 
 .details .content img{
-    max-width:868px !important;
+    max-width:100% !important;
 }
 .details .content h2{
     font-size:16px;
