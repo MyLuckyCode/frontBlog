@@ -2,7 +2,7 @@
     <div class="items">
         <div class="item" v-for="(item,index) in items" :key="index">
             <div class="img">
-                <nuxt-link :to="{name:'details-id',params:{id:item.id}}"><img :src="$store.state.url.blogApiImageUrl+item.face" alt="" draggable="false"></nuxt-link>
+                <!--<nuxt-link :to="{name:'details-id',params:{id:item.id}}"><img :src="$store.state.url.blogApiImageUrl+item.face" alt="" draggable="false"></nuxt-link>-->
             </div>
             <div class="content">
                 <div class="p1">
@@ -69,13 +69,14 @@
 .items .item:hover:after{
     width:100%;
 }
+/*initial.png*/
 .items .item .img{
     flex:0 0 220px;
     width:220px;
     height:140px;
     border-radius:4px;
     overflow: hidden;
-    background:blue;
+    background-image:url(~/assets/img/initial.png);
     overflow: hidden;
 }
 .items .item .img img{

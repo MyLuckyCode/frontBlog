@@ -51,7 +51,7 @@
                 <div v-else style="text-align: center;color:#ccc;font-size:12;">该文章已关闭评论</div>
             </div>
             <div class="commentList">
-                <CommentItem v-for="(item,index) in commentList" :item="item" :index="index" @setComment="setComment"></CommentItem>
+                <CommentItem v-for="(item,index) in commentList" :key="index" :item="item" :index="index" @setComment="setComment"></CommentItem>
                 <div class="off" v-if="commentList.length==0 && !comment.commentLoading">
                     暂无评论
                 </div>
