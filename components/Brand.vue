@@ -122,7 +122,7 @@ import Cookie from '~/common/cookie.js';
                 $('.brand a.brand_img').html(html);
 
                 setTimeout(()=>{
-                    console.log( '我执行了吗' );
+                    //console.log( '我执行了吗' );
                     $('.idid').css('prespective','500px').css('opacity',0);
                     for(let i=0;i<Allcount;i++){
                         let X = Math.round(Math.random() * 180);
@@ -235,7 +235,7 @@ import Cookie from '~/common/cookie.js';
                 let MAX_W=600;
                 let w=1200/MAX_W;
                 let html='';
-                console.log(prev)
+                //console.log(prev)
                 html += `
                         <div style="width:${MAX_W}px;height:360px;background-image:url(${this.brand[prev].img});background-position: -${(0%w)*MAX_W}px 0px;"></div>
 
