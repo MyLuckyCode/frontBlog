@@ -2,7 +2,7 @@
     <div class="items">
         <div class="item" v-for="(item,index) in items" :key="index">
             <div class="img">
-                <!--<nuxt-link :to="{name:'details-id',params:{id:item.id}}"><img :src="$store.state.url.blogApiImageUrl+item.face" alt="" draggable="false"></nuxt-link>-->
+                <nuxt-link :to="{name:'details-id',params:{id:item.id}}"><img :src="$store.state.url.blogApiImageUrl+item.face" alt="" draggable="false"></nuxt-link>
             </div>
             <div class="content">
                 <div class="p1">
@@ -76,7 +76,9 @@
     height:140px;
     border-radius:4px;
     overflow: hidden;
-    background-image:url(~/assets/img/initial.png);
+    background-image:url(~/assets/img/noPic.png);
+	background-size:contain;
+	background-repeat:no-repeat;
     overflow: hidden;
 }
 .items .item .img img{
