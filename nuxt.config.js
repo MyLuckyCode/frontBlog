@@ -28,7 +28,7 @@ module.exports = {
   }],
 
   head: {
-    title: '张灿强',
+    title: '幸运码',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
