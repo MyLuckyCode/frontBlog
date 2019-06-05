@@ -1,7 +1,9 @@
 <template>
     <div :class="['header',header_animate ? 'header_animate' : '']" :style="header_style">
         <div class="container clear">
-            <div class="logo"></div>
+            <div class="logo">
+				<img src="~/assets/img/logo.png">
+			</div>
             <div class="nav">
                 <ul>
                     <li><nuxt-link :to="{name:'index'}" exact :class="[urlName=='index' ? 'active' : '']"> <i class="icon-11 iconfont">&#xe651;</i>首页</nuxt-link></li>
@@ -156,7 +158,13 @@
         height:100%;
         margin-right:20px;
         background:#fcf8e3;
+		display:flex;
+		align-items:center;
     }
+	.header .container .logo img{
+		width:140px;
+		height:40px;
+	}
     .header .container .nav{
         height:100%;
         flex:1;
