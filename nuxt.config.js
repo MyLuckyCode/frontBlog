@@ -44,10 +44,6 @@ module.exports = {
     middleware:[ 'visitCount']
   },
 
-  dev:{
-    port:8888,
-    assetsPublicPach:'/'
-  },
   /*
   ** Customize the progress bar color
   */

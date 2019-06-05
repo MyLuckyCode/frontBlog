@@ -13,7 +13,7 @@
             <div class="content" ref="content" @selectstart.stop v-html="detailContent.replace(/https?:\/\/(\w+\.)+\w+:\d+/g, '')"></div>
             <div class="call">
                 <div class="bottom">
-                    两年博客，如果觉得我的文章对你有用，请打call
+                    半年博客，有些事才刚刚开始，如果写错了请见谅~！
                 </div>
                 <button class="call_num" @click="add_call" :title="[call.disabled ? '你已经点过赞了' : '听说点赞都成大牛了']" :disabled="call.disabled" :style="{cursor:call.disabled ? 'not-allowed' : 'pointer'}">
                     <i class="icon-14 iconfont">&#xe60c;</i>( <span>{{item.fabulous}}</span> )
@@ -149,7 +149,6 @@ import {Notification,Message} from 'element-ui'
                                 id:this.$route.params.id
                             }
                         }).then((res)=>{
-                        console.log( res.data );
                         if(res.data==1){
                                 setStorage(name,true);
                                 this.item.fabulous++;
@@ -163,7 +162,6 @@ import {Notification,Message} from 'element-ui'
                 this.bg_flag=!(this.bg_flag);
             },
             _getComment(start,end,fn){
-                console.log( this.item );
                 axios.get(this.$store.state.url.getComment,{
                     params:{
                         content_id:this.item.id,start,end
@@ -183,7 +181,6 @@ import {Notification,Message} from 'element-ui'
                         return;
                     }
                     this.$set(this.comment,'disabled',false);
-                    console.timeEnd('test');
                 });
             },
             bgEnter(){
@@ -253,14 +250,12 @@ import {Notification,Message} from 'element-ui'
                         });
                     });
                 }
-                console.log(res);
             },
             setComment(obj){
                 this.commentPost={};
                 this.comment.setComment=true;
                 this.$refs.textarea.focus();
                 this.commentPost.pid=obj.pid;
-                console.log(obj)
                if(!obj.p_name){
                    this.commentPost.name=obj.name;
                }else {
@@ -300,7 +295,6 @@ import {Notification,Message} from 'element-ui'
             this.$set(this.comment,'commentLoading',true)
             this._getComment(0,COMMENT_COUNT,(res)=>{
                 this.commentList=res.data;
-                console.log(res)
                 this.$set(this.comment,'commentLoading',false)
 
                 if(res.data.length==0 || res.data.length < COMMENT_COUNT ) {
@@ -312,7 +306,6 @@ import {Notification,Message} from 'element-ui'
         },
         computed:{
             detailContent(){
-                console.log('内容发送变化了');
                 let content=this.item.content;
 
                 // 匹配跳到站内的链接
