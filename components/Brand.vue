@@ -41,11 +41,16 @@ import Cookie from '~/common/cookie.js';
             let caChe = this.$store.state.caChe;
             if(Cookie.is('brand') && caChe){
                 this.brand=JSON.parse(Cookie.get('brand'));
+                this.brand.forEach((item)=>{
+                    let img=new Image();
+                    img.src=item.img;
+                })
             }else {
                 axios.get(this.$store.state.url.getBrand).then((res)=>{
                     res.data.forEach(async (item)=>{
                         item.img=this.$store.state.url.blogUrl+'upload/clippingImages/'+item.imgUrl;
-                       // console.log(a)
+                        let img=new Image();
+                        img.src=item.img;
                     })
                     Cookie.set('brand',JSON.stringify(res.data));
                     this.brand=res.data
