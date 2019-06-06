@@ -86,7 +86,7 @@ import CommentItem from '~/components/comment-item.vue';
 import {setStorage,getStorage,isStorage} from '~/common/localStorage.js';
 import {getOsInfo,getBrowerInfo} from '~/common/system.js';
 import {Notification,Message} from 'element-ui'
-    let COMMENT_COUNT = 1 ;
+    let COMMENT_COUNT = 10 ;
     export default{
         async asyncData(content){
             let list = await axios.get(content.store.state.url.getArticleOne,{
