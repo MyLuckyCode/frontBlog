@@ -7,7 +7,8 @@ Vue.use(Vuex);
 
 let blogUrl = 'http://127.0.0.1/smarty/admin_blog/';
 let blogApiUrl=blogUrl+'index.php?a=ajax&m=';
-let blogApiImageUrl=blogUrl+'index.php?a=images&uniqueId=';
+//let blogApiImageUrl=blogUrl+'index.php?a=images&uniqueId=';
+let blogApiImageUrl=blogUrl+'upload/clippingImages/';
 const store = () => new Vuex.Store({
     state:{
         url:{
