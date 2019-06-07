@@ -1,7 +1,7 @@
 <template>
     <div class="brand clear">
         <div class="container">
-            <a class="brand_img" href="###" v-if="brand[0]">
+            <a class="brand_img" target="_blank" :href="brand[0].target" v-if="brand[0]">
                 <img :src="brand[0].img">
             </a>
             <ul class="ul">
@@ -45,6 +45,7 @@ import Cookie from '~/common/cookie.js';
                     let img=new Image();
                     img.src=item.img;
                 })
+				console.log(this.brand)
             }else {
                 axios.get(this.$store.state.url.getBrand).then((res)=>{
                     res.data.forEach(async (item)=>{
@@ -89,7 +90,7 @@ import Cookie from '~/common/cookie.js';
             },
             transitionend(){
                 this.flag=true;
-                $('.brand a.brand_img').attr('href',`${this.brand[this.index].href}`).attr('title',`${this.brand[this.index].title}`).css('background-image',`url(${this.brand[this.index].img})`).html('');
+                $('.brand a.brand_img').attr('href',`${this.brand[this.index].target}`).attr('title',`${this.brand[this.index].title}`).css('background-image',`url(${this.brand[this.index].img})`).html('');
                 this.interval=setInterval(this.next,3000)
             },
             goBrand(goIndex){
