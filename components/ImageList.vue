@@ -14,7 +14,7 @@
                     <h3 class="text_title">404</h3>
                     <p class="text_desc">路<br>在何方</p>
                 </div>
-                <img class="pic" :width="item.width" height="84" :src="'http://localhost/img/'+item.url+'.jpg'">
+                <img class="pic" :width="item.width" height="84" :src="$store.state.url.blogUrl+'frontStatic/img/'+item.url+'.jpg'">
             </div>
 
         </div>
