@@ -4,7 +4,7 @@
             <span class="icon"><i class="icon-18 iconfont">&#xe611;</i></span>
             <h2 class="title">热门文章</h2>
         </div>
-        <div class="items" v-if="hot.length">
+        <div class="items" v-show="hot.length">
             <div class="item" v-for="(item,index) in hot" :key="index">
                 <i>{{index+1}}</i>
                 <nuxt-link :to="{name:'details-id',params:{id:item.id}}"><p>{{item.title}}</p></nuxt-link>

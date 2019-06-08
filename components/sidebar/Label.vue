@@ -5,7 +5,7 @@
             <h2 class="title">标签云</h2>
         </div>
         <div class="items">
-            <ul v-if="label.length">
+            <ul v-show="label.length">
                 <li v-for="(item,index) in label" :key="index" v-bind:style="{background:rgb()}">{{item.name}}</li>
             </ul>
         </div>
