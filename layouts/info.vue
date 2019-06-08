@@ -43,7 +43,7 @@
     margin-top: 60px;
 }
 .body{
-    background: #fff;
+    background: rgb(245,245,245);
 }
 
 </style>
