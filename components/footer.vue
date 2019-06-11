@@ -1,9 +1,8 @@
 <template>
     <div class="footer">
         <div class="container">
-            <p>本博客有博主自主开发，主题参考</p>
-            <p><span>该网站勉强运行：{{currentTimeHtml}}</span></p>
-            <p>@ 2017-2018 啊强 <span>本站参考WEIPXIU.COM</span> 粤ICP备18026543号</p>
+            <p><a href="https://github.com/MyLuckyCode" target="_blank"><i class="icon-18 iconfont">&#xe709;</i></a> </p>
+            <p><span>网站运行：{{currentTimeHtml}}</span></p>
         </div>
         <div class="bottom"></div>
     </div>
@@ -48,7 +47,7 @@
                 return time;
             },
             setTime(){
-                let create_time = Math.round(new Date(Date.UTC(2018, 10, 15, 0, 0, 0)).getTime() /1000);
+                let create_time = Math.round(new Date(Date.UTC(2019, 4, 15, 0, 0, 0)).getTime() /1000);
                 let timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000)/1000);
                 let currentTime = this.secondToDate((timestamp - create_time));
                 this.currentTimeHtml = currentTime[0] + '年' + currentTime[1] + '天' +
@@ -78,12 +77,12 @@
         height:80px;
     }
     .footer .container p{
-        font-size:12px;
+        font-size:14px;
         letter-spacing:1px;
         color:rgb(155,155,155);
     }
     .footer .container p span{
-        color:rgb(40,178,247);
+        font-weight:bold;
     }
 
     .bottom{
