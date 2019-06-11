@@ -8,7 +8,7 @@
                 <span><i class="icon-10 iconfont">&#xe7d2;</i>{{item.readCount}}</span>
                 <span><i class="icon-10 iconfont">&#xe619;</i> {{item.commentCount}} 条评论</span>
                 <span><i class="icon-10 iconfont">&#xe60c;</i>{{item.fabulous}} 喜欢</span>
-                <span>{{item.source==1 ? '原创' : '转载'}} <strong>·</strong>{{item.author}}</span>
+                <span>{{item.source==1 ? '原创' : '转载'}} <strong>·</strong> {{item.author}}</span>
             </div>
             <div class="content" ref="content" @selectstart.stop v-html="detailContent.replace(/https?:\/\/(\w+\.)+\w+:\d+/g, '')"></div>
             <div class="call">
@@ -315,8 +315,8 @@ import {Notification,Message} from 'element-ui'
                 let exp=new RegExp('<pre class="brush:(.+?);toolbar:false\">([\\s\\S]+?)</pre>','g');
                 let content2 = content1.replace(exp,'<pre class="line-numbers"><code class="language-$1">$2</code></pre>');
                 //匹配站内的图片
-                let content3=content2.replace(/<img src=\"([^https|http].+?)\"/g,'<img src="'+this.$store.state.url.blogUrl+'$1"');
-
+                //let content3=content2.replace(/<img src=\"([^https|http].+?)\"/g,'<img src="'+this.$store.state.url.blogUrl+'$1"');
+                let content3=content2.replace(/<img(.+?)src=\"([^https|http].+?)\"/g,'<img$1src="'+this.$store.state.url.blogUrl+'$2"');
                 //匹配站内的文件链接
                 let content4 =content3.replace(/<a href=\"([^https|http].+?)\"/g,'<a href="'+this.$store.state.url.blogUrl+'$1" download="demo"');
                 let content5 =content4.replace(/<a (.*) href=\"([^https|http].+?)\"/g,'<a $1 href="'+this.$store.state.url.blogUrl+'$2" download="demo"');
