@@ -39,7 +39,7 @@ import Cookie from '~/common/cookie.js';
 
 
             let caChe = this.$store.state.caChe;
-            if(Cookie.is('brand') && caChe){
+            if(Cookie.is('brand') && false){
                 this.brand=JSON.parse(Cookie.get('brand'));
                 this.brand.forEach((item)=>{
                     let img=new Image();
@@ -50,6 +50,7 @@ import Cookie from '~/common/cookie.js';
                 axios.get(this.$store.state.url.getBrand).then((res)=>{
                     res.data.forEach(async (item)=>{
                         item.img=this.$store.state.url.blogUrl+'upload/clippingImages/'+item.imgUrl;
+                        //item.img=this.$store.state.url.blogUrl+'?a=images&uniqueId='+item.imgUrl;
                         let img=new Image();
                         img.src=item.img;
                     })
