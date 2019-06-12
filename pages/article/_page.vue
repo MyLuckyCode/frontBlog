@@ -5,14 +5,18 @@
         <h2 v-if="$route.query.type==undefined || $route.query.type=='web' ">当前位置 &gt; 前端开发</h2>
         <h2 v-else>当前位置 &gt; <nuxt-link :to="{name:'article-page',params:{page:1},query:{type:'web'}}">前端开发</nuxt-link>&nbsp;&gt; {{$route.query.title}}</h2>
 
-        <Article :items="articleData"></Article>
-        <Pagination class="page"
+        <Article :items="articleData" v-if="articleData.length>=1"></Article>
+        <Pagination class="page" v-if="articleData.length>=1"
                        @current-change="handleCurrentChange"
                        :page-size="$store.state.page.page_size"
                        layout="prev, pager, next, jumper"
                        :current-page="currentPage"
                        :total="$store.state.article.total">
         </Pagination>
+        <p v-if="articleData.length<=0" class="noData">
+            <img src="@/assets/img/noData.png" alt="">
+            <span>找不到任何数据~</span>
+        </p>
     </div>
 </template>
 
@@ -33,8 +37,7 @@
                     page_size:content.store.state.page.page_size
                 }
             });
-
-            if(list.data.length==0) content.redirect('/error');
+            console.log( list );
             return {articleData:list.data,position:content.query.type}
 
         },
@@ -102,6 +105,18 @@
         display: flex;
         margin-bottom: 10px;
         border-radius: 4px;
+    }
+
+    .noData{
+        background: #fff;
+        width:100%;
+        height:400px;
+        font-size:15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color:#999;
     }
 
     .page{

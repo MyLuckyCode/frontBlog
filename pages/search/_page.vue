@@ -2,13 +2,18 @@
     <div class="article">
 
         <Article :items="articleData"></Article>
-        <Pagination class="page"
+
+        <Pagination class="page" v-if="count>=1"
                        @current-change="handleCurrentChange"
                        :page-size="$store.state.page.page_size"
                        layout="prev, pager, next, jumper"
                        :current-page="currentPage"
                        :total="count">
         </Pagination>
+        <p v-if="count<=0" class="noData">
+            <img src="@/assets/img/noData.png" alt="">
+            <span>找不到任何数据~</span>
+        </p>
     </div>
 </template>
 
@@ -21,7 +26,7 @@
         async asyncData(content){
             console.log( content.query.s );
             if(content.query.s==undefined || content.query.s==''){
-               content.app.router.push({name:'article-page'});
+               content.app.router.push({name:'article-page',params:{page:1}});
             }
             content.params.page = content.params.page==undefined ? '1' : content.params.page;
             let list = await axios.get(content.store.state.url.getSearch,{
@@ -96,6 +101,17 @@
         display: flex;
         margin-bottom: 10px;
         border-radius: 4px;
+    }
+    .noData{
+        background: #fff;
+        width:100%;
+        height:400px;
+        font-size:15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color:#999;
     }
 
     .page{
