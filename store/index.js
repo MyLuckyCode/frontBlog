@@ -5,15 +5,16 @@ Vue.use(Vuex);
 
 
 
-let blogUrl = 'http://127.0.0.1/smarty/admin_blog/';
-let blogApiUrl=blogUrl+'index.php?a=ajax&m=';
-//let blogApiImageUrl=blogUrl+'index.php?a=images&uniqueId=';
-let blogApiImageUrl=blogUrl+'upload/clippingImages/';
+let blogUrl = 'http://127.0.0.1/smarty/admin_blog/';    //博客后台地址
+let blogApiUrl=blogUrl+'index.php?a=ajax&m=';           //博客后台API地址
+let blogApiImageUrl=blogUrl+'index.php?a=images&uniqueId=';     //博客图片地址
+let blogApiStaticImageUrl=blogUrl+'upload/clippingImages/';     //博客静态图片地址
 const store = () => new Vuex.Store({
     state:{
         url:{
             blogUrl,
             blogApiImageUrl,
+            blogApiStaticImageUrl,
             getIndexArticle:blogApiUrl+'getIndexArticle',
             getIndexTotal:blogApiUrl+'getIndexTotal',
             getArticleOne:blogApiUrl+'getArticleOne',

@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="e66b6394-0bf8-4915-917e-62f81fcf004d" name="默认的" comment="" />
+=======
+    <list default="true" id="e66b6394-0bf8-4915-917e-62f81fcf004d" name="默认的" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/works/index.vue" afterPath="$PROJECT_DIR$/pages/works/index.vue" />
+    </list>
+>>>>>>> dev
     <ignored path="item1.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,8 +31,13 @@
       <file leaf-file-name="index.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/works/index.vue">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state vertical-scroll-proportion="0.7898936">
               <caret line="96" column="30" selection-start-line="96" selection-start-column="30" selection-end-line="96" selection-end-column="30" />
+=======
+            <state vertical-scroll-proportion="-0.5265958">
+              <caret line="60" column="28" selection-start-line="60" selection-start-column="28" selection-end-line="60" selection-end-column="28" />
+>>>>>>> dev
               <folding />
             </state>
           </provider>
@@ -70,18 +82,18 @@
         <option value="$PROJECT_DIR$/components/header/index.vue" />
         <option value="$PROJECT_DIR$/pages/article/_page.vue" />
         <option value="$PROJECT_DIR$/pages/search/_page.vue" />
-        <option value="$PROJECT_DIR$/store/index.js" />
-        <option value="$PROJECT_DIR$/components/Article.vue" />
         <option value="$PROJECT_DIR$/layouts/info.vue" />
-        <option value="$PROJECT_DIR$/pages/works/index.vue" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/app.html" />
         <option value="$PROJECT_DIR$/assets/css/basic.css" />
         <option value="$PROJECT_DIR$/pages/details/_id.vue" />
-        <option value="$PROJECT_DIR$/components/Brand.vue" />
         <option value="$PROJECT_DIR$/components/footer.vue" />
         <option value="$PROJECT_DIR$/components/sidebar/Introduce.vue" />
+        <option value="$PROJECT_DIR$/components/Brand.vue" />
+        <option value="$PROJECT_DIR$/components/Article.vue" />
+        <option value="$PROJECT_DIR$/store/index.js" />
         <option value="$PROJECT_DIR$/pages/about/index.vue" />
+        <option value="$PROJECT_DIR$/pages/works/index.vue" />
       </list>
     </option>
   </component>
@@ -740,8 +752,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/works/index.vue">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.7898936">
           <caret line="96" column="30" selection-start-line="96" selection-start-column="30" selection-end-line="96" selection-end-column="30" />
+=======
+        <state vertical-scroll-proportion="-0.5265958">
+          <caret line="60" column="28" selection-start-line="60" selection-start-column="28" selection-end-line="60" selection-end-column="28" />
+>>>>>>> dev
           <folding />
         </state>
       </provider>
