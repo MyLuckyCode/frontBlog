@@ -1,7 +1,7 @@
 <template>
     <div class="introduce">
         <span>博客简介</span>
-        <p class="content">幸运码博客主要是记录web开发过程中的坑、笔记、案例的地方，偶尔也是抒发自己情感的地方。</p>
+        <p class="content">幸运码博客主要是记录web开发过程中的坑、笔记、案例的地方，偶尔也是记录生活的地方。</p>
         <p class="content"><a href="https://github.com/MyLuckyCode/frontBlog" target="_blank"><i class="icon-14 iconfont">&#xe709;</i>stars</a></p>
     </div>
 </template>

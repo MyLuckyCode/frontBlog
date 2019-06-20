@@ -37,7 +37,7 @@
                     page_size:content.store.state.page.page_size
                 }
             });
-            console.log( list );
+
             return {articleData:list.data,position:content.query.type}
 
         },

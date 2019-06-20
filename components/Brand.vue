@@ -45,7 +45,7 @@ import Cookie from '~/common/cookie.js';
                     let img=new Image();
                     img.src=item.img;
                 })
-				console.log(this.brand)
+
             }else {
                 axios.get(this.$store.state.url.getBrand).then((res)=>{
                     res.data.forEach(async (item)=>{

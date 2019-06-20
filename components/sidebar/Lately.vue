@@ -34,7 +34,6 @@
             if(Cookie.is('lately') && caChe){
 			
                 this.lately=JSON.parse(Cookie.get('lately'));
-				console.log(this.lately);
 			}else {
                 axios.get(this.$store.state.url.getUpdateArticle).then((res)=>{
 
