@@ -1,27 +1,13 @@
-const axios = require('axios');
+
 
 
 module.exports = {
   /*
   ** Headers of the page
   */
-  //loading:'~/components/loading.vue',
-  loading:{color:'rgb(24,144,255)'},
-  generate: {
-    routes: function () {
+  loading:'~/components/loading/loading2.vue',
+  //loading:{color:'rgb(24,144,255)'},
 
-      return axios.get('http://localhost/smarty/blog/index.php?a=ajax&m=getContentListId')
-          .then((res) => {
-            return res.data.map((details) => {
-              return {
-                route:details.url,
-                payload:details
-              }
-            })
-          })
-    }
-
-  },
   rules:[{
       test:/\.(ttf|eot|woff|woff2|svg)/,
       use:['file-loader']

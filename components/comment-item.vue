@@ -7,6 +7,7 @@
             <div class="top">
                 <div class="name">{{item.name}}</div>
                 <div class="date">发表于 {{item.date}}</div>
+                <div class="small_date">发表于 {{item.date|formatDate}}</div>
                 <div class="browser" v-for="(v,k) in browser">{{v}}</div>
                 <div class="floor" style="color:rgb(106,230,120);">
                     <i class="iconfont" v-if="index==0" title="沙发">&#xe61c;</i>
@@ -27,6 +28,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+    import dateparser from '~/common/DateParser.js'
     export default{
         props:['item','index'],
         data(){
@@ -36,6 +38,11 @@
             setComment(obj){
                 console.log(obj)
                 this.$emit('setComment',obj);
+            }
+        },
+        filters:{
+            formatDate(time){
+                return dateparser.getLocalTime(time);
             }
         },
         computed:{
@@ -93,6 +100,9 @@
         background-repeat: no-repeat;
         background-position:center left ;
     }
+    .item .right .top .small_date{
+        display: none;
+    }
     .item .right .top .date{
         padding-right:15px;
     }
@@ -148,7 +158,30 @@
     }
 
 
+    @media screen and (max-width:767px){
+        .item .right .top .browser{
+            display: none;
+        }
+        .item .left{
+            flex:0 0 70px;
+            justify-content: flex-start;
+        }
+    }
 
+    @media screen and (max-width:414px){
+        .item .right .top .date{
+            display: none;
+        }
+        .item .right .top .small_date{
+            display: block;
+        }
+    }
+
+    @media screen and (min-width:415px){
+        .item .right .top .small_date{
+            display: none;
+        }
+    }
 
 
 </style>

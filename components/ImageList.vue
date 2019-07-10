@@ -1,5 +1,5 @@
 <template>
-    <div class="ImageList clear">
+    <div class="ImageList" >
         <div class="left">
             <div class="letView">
                 <img src="@/assets/img/imageList1.jpg" alt="" width="310" height="180">
@@ -7,7 +7,7 @@
                 <p class="img_txt">有些话不一定要说出来 | 但一定要记录在某个地方</p>
             </div>
         </div>
-        <div class="right" >
+        <div class="right">
 
             <div  class="rightItem" v-for="(item,index) in list" :key="index" :style="'width:'+item.width+'px;'" >
                 <div class="text">
@@ -16,6 +16,8 @@
                 </div>
                 <img class="pic" :width="item.width" height="84" :src="$store.state.url.blogUrl+'frontStatic/img/'+item.url+'.jpg'">
             </div>
+
+
 
         </div>
 
@@ -27,6 +29,7 @@
     export default{
         data(){
             return {
+                flag:false,
                 list:[{
                     url:'imageList2',
                     width:110
@@ -54,6 +57,12 @@
                 }]
             }
         },
+        created(){
+            if (process.client) {
+                let htmlWidth = window.innerWidth;
+                if ( htmlWidth >= 1200 )this.flag = true;
+            }
+        },
         methods:{
             setClass(e){
 
@@ -71,6 +80,7 @@
     .ImageList{
         height:180px;
         display: flex;
+        margin-bottom:10px;
     }
     .ImageList .left{
         flex:0 0 325px;
@@ -163,6 +173,12 @@
         position:absolute;
         top:0;
         left:0;
+    }
+
+    @media screen and (max-width: 1199px) {
+        .ImageList{
+            display: none;
+        }
     }
 
 </style>

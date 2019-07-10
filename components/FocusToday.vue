@@ -54,7 +54,6 @@
         width:100%;
         height:120px;
         background: #fff;
-        margin-top:10px;
         padding:15px 20px;
     }
     .FocusToday .top{

@@ -73,4 +73,11 @@
         }
     }
 
+    @media screen and (max-width:992px){
+        .loadView > p{
+            font-size:0.32rem;
+        }
+
+    }
+
 </style>

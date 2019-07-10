@@ -1,5 +1,5 @@
 <template>
-    <div class="brand clear">
+    <div class="brand">
         <div class="container">
             <a class="brand_img" target="_blank" :href="brand[0].target" v-if="brand[0]">
                 <img :src="brand[0].img">
@@ -36,8 +36,10 @@ import Cookie from '~/common/cookie.js';
         async mounted(){
 
             //this.interval=setInterval(this.next,3000)
-
-
+            if (process.client) {
+                let htmlWidth = window.innerWidth;
+                if ( htmlWidth < 1200 )return;
+            }
             let caChe = this.$store.state.caChe;
             if(Cookie.is('brand') && caChe){
                 this.brand=JSON.parse(Cookie.get('brand'));
@@ -58,7 +60,6 @@ import Cookie from '~/common/cookie.js';
                     this.brand=res.data
                 })
             }
-
         },
         destroyed(){
             clearInterval(this.interval);
@@ -473,13 +474,15 @@ import Cookie from '~/common/cookie.js';
 
 <style lang="scss" scoped>
 @import "@/assets/css/basic.scss";
+    .m_brand{
+        display: none;
+    }
     .brand{
         margin-top:5px;
         width:100%;
         height:360px;
         background: #fff;
         position:relative;
-
     }
     .brand .operation .item{
         width:50px;
@@ -542,6 +545,10 @@ import Cookie from '~/common/cookie.js';
         background:$background;
     }
 
-
+@media screen and (max-width: 1199px) {
+    .brand{
+        display: none;
+    }
+}
 
 </style>

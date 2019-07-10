@@ -29,7 +29,10 @@
             }
         },
         async created(){
-            let date=new Date();
+            if (process.client) {
+                let htmlWidth = window.innerWidth;
+                if ( htmlWidth <= 992 ) return;
+            }
             let caChe = this.$store.state.caChe;
             if(Cookie.is('lately') && caChe){
 			

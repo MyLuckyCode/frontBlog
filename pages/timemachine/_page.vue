@@ -156,15 +156,12 @@ import axios from 'axios';
 <style scoped>
 .time{
     width:100%;
-
-    padding-top:65px;
 }
 .time .main{
-    width:900px;
+    max-width:900px;
     margin:0 auto;
     display:flex;
     justify-content: flex-end;
-
 }
 .time .main ul{
     border-left:1px solid #fff;
@@ -310,5 +307,30 @@ import axios from 'axios';
         transform:rotateY(0deg);
     }
 }
+
+
+@media screen and (max-width:992px ){
+    .time .main{
+        justify-content: center;
+    }
+    .time .main ul{
+
+    }
+    .time .main li{
+        font-size:0.32rem;
+    }
+    .time .main li .pic{
+        display: none;
+    }
+}
+@media screen and (max-width:767px){
+    .time .main ul{
+        width:auto;
+    }
+    .time .main ul li{
+        width:auto;
+    }
+}
+
 
 </style>

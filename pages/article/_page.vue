@@ -125,5 +125,11 @@
         font-weight:normal;
     }
 
+    @media screen and (max-width:767px){
+        .article > h2{
+            display: none;
+        }
+    }
+
 </style>
 

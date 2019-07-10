@@ -31,6 +31,10 @@
             }
         },
         async created(){
+            if (process.client) {
+                let htmlWidth = window.innerWidth;
+                if ( htmlWidth <= 992 ) return;
+            }
             let caChe = this.$store.state.caChe;
             if(Cookie.is('total') && caChe){
                 let data=JSON.parse(Cookie.get('total'));

@@ -1,31 +1,44 @@
 <template>
-    <div :class="['header',header_animate ? 'header_animate' : '']" :style="header_style">
-        <div class="container clear">
-            <div class="logo">
-				<img src="~/assets/img/logo.png">
-			</div>
-            <div class="nav">
-                <ul>
-                    <li><nuxt-link :to="{name:'index'}" exact :class="[urlName=='index' ? 'active' : '']"> <i class="icon-11 iconfont">&#xe651;</i>首页</nuxt-link></li>
-                    <li class="web" @mouseenter ="web_item_flag=true" @mouseleave="web_item_flag=false" >
-                        <nuxt-link :to="{name:'article-page',params:{page:1}}" exact :class="[urlName=='web' ? 'active' : '']">前端开发 <i class="icon-10 iconfont">&#xe65e;</i></nuxt-link>
-                        <transition name="web">
-                            <SubInsideNav class="web_item" :list="web_list" v-show="web_item_flag"></SubInsideNav>
-                        </transition>
-                    </li>
-                    <li><nuxt-link :to="{name:'works'}" exact :class="[urlName=='works' ? 'active' : '']">个人案例</nuxt-link></li>
-                    <li><nuxt-link :to="{name:'timemachine-page'}" exact :class="[urlName=='timemachine-page' ? 'active' : '']">时光机</nuxt-link></li>
-                    <li><nuxt-link :to="{name:'article-page',params:{page:1},query:{type:'life',title:'生活随笔'}}" exact :class="[urlName=='life' ? 'active' : '']">生活随笔</nuxt-link></li>
-                    <li><a href="http://www.xinhuanet.com/politics/xxjxs/" target="_blank">学<span class="xijinp">习</span>进行时</a></li>
-                    <li><nuxt-link :to="{name:'about'}" exact :class="[urlName=='about' ? 'active' : '']">关于博主</nuxt-link></li>
-                </ul>
-            </div>
-            <div class="search">
-                <div class="content">
-                    <input type="text" v-model="search" placeholder="请输入关键字"><span><i class="icon-18 iconfont" @click="sendSearch">&#xe612;</i></span>
+    <div>
+        <div :class="['header',header_animate ? 'header_animate' : '']" :style="header_style">
+            <div class="container">
+                <div class="logo">
+                    <img src="~/assets/img/logo.png">
+                </div>
+
+                <div class="mobile">
+                    <div class="m_ment" @click="mAlertNav"><i class="iconfont">&#xe611;</i></div>
+                    <div class="m_search" style="font-size:25px;">
+                        <div class="m_search_c" :style="m_search_style">
+                            <input type="search" v-model="search" @blur="searchBlur" @focus="searchFocus" placeholder="请输入关键字"><span :style="m_search_i_style"><i class="iconfont" style="font-size:18px;" @click="sendSearch">&#xe617;</i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav">
+                    <ul>
+                        <li><nuxt-link :to="{name:'index'}" exact :class="[urlName=='index' ? 'active' : '']"> <i class="icon-11 iconfont">&#xe651;</i>首页</nuxt-link></li>
+                        <li class="web" @mouseenter ="web_item_flag=true" @mouseleave="web_item_flag=false" >
+                            <nuxt-link :to="{name:'article-page',params:{page:1}}" exact :class="[urlName=='web' ? 'active' : '']">前端开发 <i class="icon-10 iconfont">&#xe65e;</i></nuxt-link>
+                            <transition name="web">
+                                <SubInsideNav class="web_item" :list="web_list" v-show="web_item_flag"></SubInsideNav>
+                            </transition>
+                        </li>
+                        <li><nuxt-link :to="{name:'works'}" exact :class="[urlName=='works' ? 'active' : '']">个人案例</nuxt-link></li>
+                        <li><nuxt-link :to="{name:'timemachine-page'}" exact :class="[urlName=='timemachine-page' ? 'active' : '']">时光机</nuxt-link></li>
+                        <li><nuxt-link :to="{name:'article-page',params:{page:1},query:{type:'life',title:'生活随笔'}}" exact :class="[urlName=='life' ? 'active' : '']">生活随笔</nuxt-link></li>
+                        <li><a href="http://www.xinhuanet.com/politics/xxjxs/" target="_blank">学<span class="xijinp">习</span>进行时</a></li>
+                        <li><nuxt-link :to="{name:'about'}" exact :class="[urlName=='about' ? 'active' : '']">关于博主</nuxt-link></li>
+                    </ul>
+                </div>
+                <div class="search">
+                    <div class="content">
+                        <input type="text" v-model="search" placeholder="请输入关键字"><span><i class="icon-18 iconfont" @click="sendSearch">&#xe612;</i></span>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="header_wait"></div>
     </div>
 </template>
 
@@ -40,7 +53,14 @@
                 web_item_flag:false,
                 web_list:[],
                 header_style:{
-                    height:'60px'
+                    height:'60px',
+                    transform:'translateX(0px)'
+                },
+                m_search_style:{
+                    width:'50%'
+                },
+                m_search_i_style:{
+                    background:'rgb(220,220,220)'
                 },
                 search:'',
                 header_animate:false
@@ -54,6 +74,24 @@
                 console.log(this.search);
                 if(this.search=='') return;
                 this.$router.push({name:'search-page',params:{page:1},query:{s:this.search}})
+            },
+            searchBlur(){
+                this.m_search_style.width='50%';
+                this.m_search_i_style.background='rgb(220,220,220)';
+            },
+            searchFocus(){
+                this.m_search_style.width='90%';
+                this.m_search_i_style.background='rgb(150,150,150)';
+            },
+            mAlertNav(flag){
+                if(flag===true){
+                    this.header_style.transform='translateX(0px)';
+                }else {
+                    this.header_style.transform='translateX(160px)';
+                    this.$emit('mAlertNav');
+                }
+
+
             }
         },
         computed:{
@@ -112,6 +150,10 @@
         padding:2px;
         font-weight:bold;
     }
+    .header_wait{
+        width:100%;
+        height:60px;
+    }
     .header{
         width:100%;
         background:#fff;
@@ -165,6 +207,63 @@
 		width:140px;
 		height:40px;
 	}
+	.header .container .mobile{
+        height:100%;
+        flex:1;
+        display: none;
+        align-items: center;
+        justify-content: space-between;
+        color:#fff;
+	}
+    .header .container .mobile i.iconfont{
+        font-size:0.5rem;
+    }
+    .header .container .mobile .m_ment{
+        display: flex;
+        margin-left:0.2rem;
+    }
+    .header .container .mobile .m_search{
+        flex:1;
+        height:100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-right:0.2rem;
+    }
+    .header .container .mobile .m_search .m_search_c{
+        background:#fff;
+        border-radius: 20px;
+        width:60%;
+        height:30px;
+        display: flex;
+        align-items: center;
+        position:relative;
+        transition:0.5s;
+    }
+    .header .container .mobile .m_search .m_search_c input{
+        padding-left:10px;
+        height:100%;
+        width:100%;
+        border-radius: 20px;
+        border:none;
+        padding-right:50px;
+        outline: none;
+        color:#737373;
+    }
+    .header .container .mobile .m_search .m_search_c span{
+        background: rgb(200,200,200);
+        width:25px;
+        height:25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        position:absolute;
+        top:2.5px;
+        right:10px;
+        font-size:15px;
+        transition:0.5s;
+    }
     .header .container .nav{
         height:100%;
         flex:1;
@@ -239,13 +338,17 @@
     }
 
 
-    .works-enter-active,.works-leave-active{
-        opacity: 1;
-        transition:0.5s;
-    }
-    .works-enter,.works-leave-to{
-        opacity: 0;
-        transform:translateY(20px);
+
+    @media screen and (max-width:992px ){
+        .header{
+            background:$colorActive !important;
+        }
+        .logo,.nav,.search{
+            display: none !important;
+        }
+        .mobile{
+            display: flex !important;
+        }
     }
 
 

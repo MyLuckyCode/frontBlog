@@ -24,6 +24,10 @@ import Cookie from '~/common/cookie.js';
             }
         },
         async created(){
+            if (process.client) {
+                let htmlWidth = window.innerWidth;
+                if ( htmlWidth <= 992 ) return;
+            }
             let caChe = this.$store.state.caChe;
             if(Cookie.is('hot') && caChe){
                 this.hot=JSON.parse(Cookie.get('hot'));

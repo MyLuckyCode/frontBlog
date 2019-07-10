@@ -43,10 +43,10 @@
                     <!--<p id="q">贴  图： <a href="javascripg:;">Q图系列[1]</a><a href="javascripg:;">Q图系列[2]</a><a href="javascripg:;">Q图系列[3]</a></p>-->
                     <p class="reply" v-if="comment.setComment">回复给<span>{{commentPost.name}}</span> <a href="javascript:;" style="color:red;" @click="cancel">点击取消回复</a></p>
                     <textarea name="" required id="" ref="textarea" v-model="form.content" rows="5" maxlength="100"></textarea>
-                    <input type="text" class="text" autocomplete="on" required v-model="form.name" maxlength="8" placeholder="昵称[必填]">
-                    <input type="email" class="text" autocomplete="on" required v-model="form.email" maxlength="20" placeholder="邮箱[必填]">
-                    <input type="url" class="text" autocomplete="on" v-model="form.url" maxlength="100" placeholder="网址(可不填)">
-                    <button type="submit" :disabled="form.disabled" :style="{cursor:form.disabled ? 'not-allowed' : 'pointer'}" :class="{loading:form.disabled}" >发表评论</button>
+                    <div class="li"><input type="text" class="text" autocomplete="on" required v-model="form.name" maxlength="8" placeholder="昵称[必填]"></div>
+                    <div class="li"><input type="email" class="text" autocomplete="on" required v-model="form.email" maxlength="20" placeholder="邮箱[必填]"></div>
+                    <div class="li"><input type="url" class="text" autocomplete="on" v-model="form.url" maxlength="100" placeholder="网址(可不填)"></div>
+                    <div class="li"><button type="submit" :disabled="form.disabled" :style="{cursor:form.disabled ? 'not-allowed' : 'pointer'}" :class="{loading:form.disabled}" >发表评论</button></div>
                 </form>
                 <div v-else style="text-align: center;color:#ccc;font-size:12;">该文章已关闭评论</div>
             </div>
@@ -72,7 +72,7 @@
                 <button type="button" v-if="!comment.commentLoading && commentList.length!=0" class="getCommentMore" :disabled="comment.disabled" @click="getCommentMore" :style="{cursor:comment.disabled ? 'not-allowed' : 'pointer'}" :class="{loading:comment.buttonLoading}" >{{comment.html}}</button>
             </div>
         </div>
-        <transition name="bg" @after-enter="bgEnter" @before-leave="bgLeave">
+        <transition name="bg" @after-enter="bgEnter" @before-leave="bgLeave" >
             <div class="bg" @click="exhibition" v-show="bg_flag"></div>
         </transition>
     </div>
@@ -80,8 +80,9 @@
 
 <script type="text/ecmascript-6">
 import axios from 'axios';
+import Prism from '~/common/prism.js'
 import Cookie from '~/common/cookie.js';
-
+import "@/assets/css/prism.css";
 import CommentItem from '~/components/comment-item.vue';
 import {setStorage,getStorage,isStorage} from '~/common/localStorage.js';
 import {getOsInfo,getBrowerInfo} from '~/common/system.js';
@@ -186,10 +187,20 @@ import {Notification,Message} from 'element-ui'
             bgEnter(){
                 this.$refs.details.style.width=1200+'px';
                 this.exbition=true;
+                setTimeout(()=>{
+                    try{
+                        process.browser && document.querySelectorAll('pre code').forEach(block => Prism.highlightElement(block))
+                    }catch(e){}
+                },1000)
             },
             bgLeave(){
                 this.$refs.details.style.width='100%';
                 this.exbition=false;
+                setTimeout(()=>{
+                    try{
+                        process.browser && document.querySelectorAll('pre code').forEach(block => Prism.highlightElement(block))
+                    }catch(e){}
+                },1000)
             },
             async addComment(){
                 this.$set(this.comment,'commentLoading',true)
@@ -270,7 +281,7 @@ import {Notification,Message} from 'element-ui'
         },
         mounted(){
             this.call.disabled=isStorage('details_call_'+this.$route.params.id);
-            if(!Cookie.is( 'details_count_'+this.$route.params.id )){
+            if(!Cookie.is( 'details_count_'+this.$route.params.id ) || true ){
                 axios.get(this.$store.state.url.setReadCount,{
                     params:{
                         id:this.$route.params.id
@@ -327,14 +338,16 @@ import {Notification,Message} from 'element-ui'
             return {
                 title:this.item.title,
                 link:[
-                    { hid: 'prism', rel: 'stylesheet', href: this.$store.state.url.blogUrl+'frontStatic/css/prism.css' }
+                    //{ hid: 'prism', rel: 'stylesheet', href: this.$store.state.url.blogUrl+'frontStatic/css/prism.css' }
+                  //  { hid: 'prism', rel: 'stylesheet', href: 'http://localhost/prism/prism.css' }
                 ],
                 meta:[
                     { hid: 'keywords', name: 'keywords', content:this.item.keyword},
                     { hid: 'description', name: 'description', content: this.item.info }
                 ],
                 script: [
-                    { src: this.$store.state.url.blogUrl+'frontStatic/js/prism.js' }
+                   // { src: this.$store.state.url.blogUrl+'frontStatic/js/prism.js' }
+                  //  { src: 'http://localhost/prism/prism.js' }
                 ]
             }
         }
@@ -370,20 +383,19 @@ import {Notification,Message} from 'element-ui'
     .details .title{
         text-align: center;
         font-size:20px;
-        height:60px;
-        line-height:60px;
         color:rgb(90,90,90);
+        margin-bottom: 20px;
     }
     .details .info {
         text-align:center;
         border-bottom:1px dashed #ccc;
         padding-bottom:20px;
+        display: flex;
+        justify-content: center;
     }
     .details .info span{
         font-size:12px;
-        display:inline-block;
         margin-right:25px;
-        vertical-align: bottom;
         color:rgb(90,90,90);
     }
     ::selection{
@@ -490,6 +502,7 @@ import {Notification,Message} from 'element-ui'
         margin-top:20px;
         display: flex;
         flex-wrap: wrap;
+        justify-content: space-between;
     }
     .details .comment form .reply{
         padding:3px 0;
@@ -515,6 +528,7 @@ import {Notification,Message} from 'element-ui'
         background:rgb(245,245,245);
         width:100%;
         height:90px;
+        flex:0 0 100%;
         resize:none;
         border:none;
         outline: none;
@@ -528,45 +542,41 @@ import {Notification,Message} from 'element-ui'
     .details .comment form textarea:focus{
         background:rgb(233,233,233);
     }
-    .details .comment form input:not([type=submit]),.details .comment form input[class=text]{
-        width:220px;
-        height:35px;
-        background:rgb(245,245,245);
-        margin-right:15px;
-        border:none;
-        padding-left:10px;
-        border-radius:3px;
-        color:rgb(80,80,80);
-        outline: none;
-        transition:0.2s;
+    .details .comment form .li{
         flex:3;
+        height:35px;
+        margin-right:10px;
+        display: flex;
     }
-    .details .comment form input[class=text]{   /*兼容IE8*/
-        width:220px;
-        height:35px;
+    .details .comment form .li:last-child{
+        margin-right:0;
+        flex:2.5;
+    }
+    .details .comment form input:not([type=submit]),.details .comment form input[class=text]{
+        height:100%;
+        width:100%;
         background:rgb(245,245,245);
-        margin-right:15px;
+
         border:none;
         padding-left:10px;
+        padding-right:10px;
         border-radius:3px;
         color:rgb(80,80,80);
         outline: none;
         transition:0.2s;
-        flex:3;
     }
     .details .comment form input:not([type=submit]):focus{
         background:rgb(233,233,233);
     }
     .details .comment form button[type=submit]{
-        width:165px;
-        height:35px;
+        width:100%;
+        height:100%;
         border:none;
         background:$background;
         color:#fff;
         font-size:15px;
         cursor:pointer;
         transition:1s;
-        flex:2.5;
         &:hover{
             background:$backgroundActive;
         }
@@ -714,5 +724,54 @@ import {Notification,Message} from 'element-ui'
         transform: rotate(360deg);
     }
 }
+
+
+    @media screen and (max-width:992px){
+        .details .Exhibition{display: none}
+
+        .details .content{
+            font-size:0.25rem;
+        }
+
+        .details .commentList .off{
+            font-size:0.32rem;
+        }
+
+    }
+
+    @media screen and (max-width:767px){
+        .details .info{
+            flex-wrap: wrap;
+            padding-bottom: 0px;
+        }
+        .details .info span{
+            margin-bottom: 10px;
+        }
+        .details .content{
+            font-size:0.2rem;
+        }
+        .details .comment form .li{
+            flex:0 0 49%;
+            margin-right:0;
+            margin-bottom: 10px;
+        }
+        .details .comment form .li:last-child{
+            flex:0 0 49%;
+            margin-right:0;
+        }
+
+    }
+
+    @media screen and (max-width:414px){
+        .details .comment form .li{
+            flex:0 0 100%;
+        }
+        .details .comment form .li:last-child{
+            flex:0 0 100%;
+            margin-right:0;
+        }
+    }
+
+
 
 </style>

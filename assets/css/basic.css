@@ -10,6 +10,13 @@
     /*url('//at.alicdn.com/t/font_940935_7q3eamxx9is.svg#iconfont') format('svg');*/
 /*}*/
 
+:root{
+    --background:rgb(24,144,255);
+    --backgroundActive:rgb(67,149,255);
+    --color:rgb(161,161,161);
+    --colorActive:rgb(67,149,255);
+}
+
 @font-face {
     font-family: xi;
     src: url('../font/FZZKFW.ttf') format('truetype');
@@ -17,12 +24,12 @@
 
 @font-face {
     font-family: 'iconfont';  /* project id 940935 */
-    src: url('//at.alicdn.com/t/font_940935_ugslnbtr8s.eot');
-    src: url('//at.alicdn.com/t/font_940935_ugslnbtr8s.eot?#iefix') format('embedded-opentype'),
-    url('//at.alicdn.com/t/font_940935_ugslnbtr8s.woff2') format('woff2'),
-    url('//at.alicdn.com/t/font_940935_ugslnbtr8s.woff') format('woff'),
-    url('//at.alicdn.com/t/font_940935_ugslnbtr8s.ttf') format('truetype'),
-    url('//at.alicdn.com/t/font_940935_ugslnbtr8s.svg#iconfont') format('svg');
+    src: url('//at.alicdn.com/t/font_940935_a42sfv35xoa.eot');
+    src: url('//at.alicdn.com/t/font_940935_a42sfv35xoa.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_940935_a42sfv35xoa.woff2') format('woff2'),
+    url('//at.alicdn.com/t/font_940935_a42sfv35xoa.woff') format('woff'),
+    url('//at.alicdn.com/t/font_940935_a42sfv35xoa.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_940935_a42sfv35xoa.svg#iconfont') format('svg');
 }
 
 .iconfont{
@@ -36,6 +43,7 @@
  padding:0;
  margin:0;
  box-sizing:border-box;
+    -webkit-text-size-adjust:none;
     /**/
 }
 li{
@@ -50,8 +58,13 @@ html{
 
 }
 
+.ellipsis-1{overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.ellipsis-2{display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 2;overflow: hidden;}
+.ellipsis-21{display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 1;overflow: hidden;}
+.ellipsis-3{display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 3;overflow: hidden;}
+
 .container{
-    width:1200px;
+    max-width:1200px;
     margin:0 auto;
 }
 .clear{
@@ -75,6 +88,9 @@ html{
 }
 .icon-18{
     font-size:18px;
+}
+.icon-25{
+    font-size:25px;
 }
 .icon-14{
     font-size:14px;
