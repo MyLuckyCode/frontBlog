@@ -55,8 +55,9 @@
     }
 </script>
 
-<style lang="scss" scoped>
-    @import "@/assets/css/basic.scss";
+<style scoped>
+
+    @import "@/assets/css/basic.css";
     .total{
         background:#fff;
         border-radius:4px;
@@ -73,7 +74,7 @@
         align-items: center;
         width:40px;
         height:40px;
-        color:$colorActive;
+        color:var(--colorActive);
         border-right:1px solid rgba(7,17,27,0.1);
     }
     .total .header .title{

@@ -68,6 +68,7 @@
         background-position: center;
         background-repeat: repeat-x;
         padding-top:35px;
+        transition:0.5s;
     }
     .footer .container{
         display:flex;
@@ -94,6 +95,12 @@
         z-index:9999;
         background-image:linear-gradient(transparent 10%,transparent 15%,rgba(255,255,255,1));
 
+    }
+    @media screen and (max-width:767px ){
+        .footer{
+            height:120px;
+            padding-top:0px;
+        }
     }
 
 </style>

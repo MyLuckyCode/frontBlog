@@ -8,7 +8,7 @@
             <div class="content">
                 <div class="p1">
                     <nuxt-link :to="{name:'article-page',params:{page:1},query:{type:item.nav,title:item.NavName}}"><span class="label" >{{item.NavName}} <i></i></span></nuxt-link>
-                    <nuxt-link :to="{name:'details-id',params:{id:item.id}}" class="ellipsis-21"><span class="title">{{item.title}}</span></nuxt-link>
+                    <nuxt-link :to="{name:'details-id',params:{id:item.id}}" class="ellipsis-1s"><span class="title">{{item.title}}</span></nuxt-link>
                 </div>
                 <div class="p2">
                     {{item.source==1 ? '原创' : '转载'}} <span>·</span> {{item.author}}
@@ -50,9 +50,8 @@
     }
 </script>
 
-<style lang="scss" scoped>
-    @import "@/assets/css/basic.scss";
-
+<style scoped>
+    @import "@/assets/css/basic.css";
 .items .item{
     padding:15px;
     display:flex;
@@ -129,14 +128,14 @@
     font-size:10px;
     color:#fff;
     font-weight:500;
-    background:$background;
+    background:var(--background);
     cursor:pointer;
     position:relative;
-    border-left-color:$background;
+    border-left-color:var(--background);
     transition:0.4s;
     &:hover{
-        background:$backgroundActive;
-         border-left-color:$backgroundActive;
+        background:var(--backgroundActive);
+         border-left-color:var(--backgroundActive);
     }
 }
 .items .item .content .p1 .label i{
@@ -162,7 +161,7 @@
     cursor:pointer;
     transition:1s;
     &:hover{
-        color:$colorActive;
+        color:var(--colorActive);
     }
 }
 .items .item .content .p2{
@@ -209,13 +208,13 @@
     font-size:12px;
     margin-right:15px;
     padding:5px 8px;
-    background:$background;
+    background:var(--background);
     color:#fff;
     border-radius:4px;
     cursor:pointer;
     transition:0.5s;
     &:hover{
-        background:$backgroundActive;
+        background:var(--backgroundActive);
     }
 }
 .items .item .roof{

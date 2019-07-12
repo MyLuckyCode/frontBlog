@@ -156,8 +156,19 @@
 
 
     @media screen and (max-width:767px ){
+        .about{
+            padding-left:5px;
+            padding-right:5px;
+        }
+        .introduction li{
+            padding:0 5px;
+        }
         .head-wrapper{
             height:150px;
+        }
+        .h4{
+            margin-left:-5px;
+            margin-right:-5px;
         }
     }
     @media screen and (max-width:413px){

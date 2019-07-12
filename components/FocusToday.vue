@@ -52,7 +52,6 @@
 <style scoped>
     .FocusToday{
         width:100%;
-        height:120px;
         background: #fff;
         padding:15px 20px;
     }
@@ -85,4 +84,12 @@
         -webkit-box-orient:vertical;
         -webkit-line-clamp:2;
     }
+
+
+    @media screen and (max-width:992px ){
+        .FocusToday{
+            margin-top:-0.18rem;
+        }
+    }
+
 </style>

@@ -74,10 +74,7 @@ export default {
 <style scoped>
 
 .article{
-
-
     border-radius:4px;
-
     margin-top:20px;
 }
 .article h2{
@@ -93,7 +90,11 @@ export default {
     font-weight:normal;
 }
 
-
+@media screen and (max-width:992px ){
+    .article{
+        margin-top:10px;
+    }
+}
 
 
 

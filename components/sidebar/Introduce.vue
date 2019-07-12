@@ -17,6 +17,7 @@
 </script>
 
 <style scoped>
+    @import "@/assets/css/basic.css";
 .introduce{
     position:relative;
     padding:35px 15px 15px 15px;
@@ -50,6 +51,10 @@
     margin-top:10px;
     padding:0 5px;
     border:1px solid #efefef;
+    transition:0.5s;
+    &:hover{
+        color:var(--backgroundActive);
+    }
 }
 
 </style>

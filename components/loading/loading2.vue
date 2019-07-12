@@ -27,6 +27,7 @@
 </script>
 
 <style scoped>
+    @import "@/assets/css/basic.css";
     .loading-page {
         position: fixed;
         top: 0;
@@ -50,7 +51,7 @@
         height: 25px;
         background-color: rgba(255,255,255,0);
         margin: auto;
-        border: 4px solid rgb(24,144,255);
+        border: 4px solid var(--background);
         position:absolute;
         top:0;left:0;right:0;
         bottom:0;
@@ -73,7 +74,7 @@
         text-align:center;
         height:50px;
         padding-top:25px;
-        color: rgb(24,144,255);
+        color: var(--background);
         letter-spacing:1px;
         font-weight:bold;
     }

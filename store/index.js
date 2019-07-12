@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 
 
-let blogUrl = 'http://127.0.0.1/smarty/admin_blog/';    //博客后台地址
+let blogUrl = 'http://2514z4n334.zicp.vip//smarty/admin_blog/';    //博客后台地址
 let blogApiUrl=blogUrl+'index.php?a=ajax&m=';           //博客后台API地址
 let blogApiImageUrl=blogUrl+'index.php?a=images&uniqueId=';     //博客图片地址
 let blogApiStaticImageUrl=blogUrl+'upload/clippingImages/';     //博客静态图片地址

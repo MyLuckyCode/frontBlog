@@ -7,7 +7,7 @@
       <div class="m_nav_mask" v-if="mNavMaskFlag"  @touchstart.prevent ="setMNavMaskFlag"></div>
     </transition>
     <Brand v-if="flag"></Brand>
-    <MBrand></MBrand>
+    <MBrand v-if="flag" :style="mainStyle"></MBrand>
     <div class="main container" :style="mainStyle">
       <div class="left">
         <nuxt></nuxt>
@@ -16,7 +16,7 @@
         <Sidebar></Sidebar>
       </div>
     </div>
-    <Footer></Footer>
+    <Footer :style="mainStyle"></Footer>
 
     <Heart ref="heart"></Heart>
     <Ment ref="ment"></Ment>
@@ -34,7 +34,14 @@
   import MBrand from '~/components/MBrand.vue'
   export default{
       components:{
-          Header,Footer,Sidebar,Heart,Ment,Brand,Mnav,MBrand
+          Header,
+          Footer,
+          Sidebar,
+          Heart,
+          Ment,
+          Brand,
+          Mnav,
+          MBrand
       },
       data(){
         return {
@@ -51,7 +58,6 @@
       watch:{
         '$route.path'(){
           this.flag = (this.$route.path =='/');
-
         },
         '$route'(){
           this.setMNavMaskFlag();

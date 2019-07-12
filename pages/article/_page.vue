@@ -83,9 +83,10 @@
 </script>
 
 <style scoped>
+    @import "@/assets/css/basic.css";
     h2 .nuxt-link-active{
         &:hover{
-            color:rgb(67,149,255);
+            color:var(--colorActive);
         }
     }
     .article{

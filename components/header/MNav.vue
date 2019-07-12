@@ -68,11 +68,10 @@
     }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 
 
-
-    @import "@/assets/css/basic.scss";
+    @import "@/assets/css/basic.css";
     .xijinp{
         font-family: xi;
         font-size:20px;
@@ -86,7 +85,7 @@
         padding-top:50px;
         padding-right:20px;
         height:100%;
-        background:$colorActive;
+        background:var(--colorActive);
         position:fixed;
         top:0;
         left:0;
@@ -99,13 +98,12 @@
 
         margin-left:10px;
         font-size:14px;
-        cursor:pointer;
         color:rgba(255,255,255,0.8);
         padding:0.18rem 0;
         border-bottom:1px solid rgba(255,255,255,0.4);
     }
     .m_nav > ul > li > ul > li{
-        margin-top:5px;
+        margin-top:8px;
         height:20px;
         padding:0.06rem 0;
         margin-left:10px;

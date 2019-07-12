@@ -16,8 +16,9 @@
     }
 </script>
 
-<style lang="scss" scoped>
-    @import "@/assets/css/basic.scss";
+<style scoped>
+
+    @import "@/assets/css/basic.css";
     .subnav{
         position:absolute;
         padding-top:10px;
@@ -46,7 +47,7 @@
         text-align:center;
         &:hover{
             color:#fff;
-            background: $backgroundActive;
+            background: var(--backgroundActive);
         }
     }
     .subnav ul > li a{

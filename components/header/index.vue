@@ -10,7 +10,9 @@
                     <div class="m_ment" @click="mAlertNav"><i class="iconfont">&#xe611;</i></div>
                     <div class="m_search" style="font-size:25px;">
                         <div class="m_search_c" :style="m_search_style">
-                            <input type="search" v-model="search" @blur="searchBlur" @focus="searchFocus" placeholder="请输入关键字"><span :style="m_search_i_style"><i class="iconfont" style="font-size:18px;" @click="sendSearch">&#xe617;</i></span>
+                            <form action="" @submit.prevent="sendSearch">
+                                <input type="search" v-model="search" @blur="searchBlur" @focus="searchFocus" placeholder="请输入关键字"><span :style="m_search_i_style"><i class="iconfont" style="font-size:18px;" @click="sendSearch">&#xe617;</i></span>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -139,11 +141,9 @@
     }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 
-
-
-    @import "@/assets/css/basic.scss";
+    @import "@/assets/css/basic.css";
     .xijinp{
         font-family: xi;
         font-size:20px;
@@ -240,6 +240,11 @@
         position:relative;
         transition:0.5s;
     }
+    .header .container .mobile .m_search .m_search_c form{
+        height:100%;
+        width:100%;
+        display: flex;
+    }
     .header .container .mobile .m_search .m_search_c input{
         padding-left:10px;
         height:100%;
@@ -291,10 +296,10 @@
     }
     .header .container .nav ul li a{
         display:inline-block;
-        color:$color;
+        color:var(--color);
         text-decoration: none;
-        &:hover{color:$colorActive;}
-        &.active{color:$colorActive;}
+        &:hover{color:var(--colorActive);}
+        &.active{color:var(--colorActive);}
     }
     .header .container .search{
         display: flex;
@@ -341,7 +346,7 @@
 
     @media screen and (max-width:992px ){
         .header{
-            background:$colorActive !important;
+            background:var(--colorActive) !important;
         }
         .logo,.nav,.search{
             display: none !important;

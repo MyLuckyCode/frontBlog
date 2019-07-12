@@ -9,18 +9,16 @@
         </div>
         <div class="right">
 
-            <div  class="rightItem" v-for="(item,index) in list" :key="index" :style="'width:'+item.width+'px;'" >
+            <div  class="rightItem" v-for="(item,index) in list" :key="index" :style="'width:'+item.width+'px;'" v-if="flag" >
                 <div class="text">
                     <h3 class="text_title">404</h3>
                     <p class="text_desc">路<br>在何方</p>
                 </div>
                 <img class="pic" :width="item.width" height="84" :src="$store.state.url.blogUrl+'frontStatic/img/'+item.url+'.jpg'">
             </div>
-
-
+            <div v-else></div>
 
         </div>
-
 
     </div>
 </template>
@@ -75,8 +73,6 @@
 </script>
 
 <style scoped>
-    @import "@/assets/css/basic.css";
-
     .ImageList{
         height:180px;
         display: flex;

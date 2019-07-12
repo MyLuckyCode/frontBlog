@@ -41,8 +41,8 @@ import Cookie from '~/common/cookie.js';
     }
 </script>
 
-<style lang="scss" scoped>
-    @import "@/assets/css/basic.scss";
+<style scoped>
+    @import "@/assets/css/basic.css";
     .hot{
         background:#fff;
         border-radius:4px;
@@ -59,7 +59,7 @@ import Cookie from '~/common/cookie.js';
         align-items: center;
         width:40px;
         height:40px;
-        color:$colorActive;
+        color:var(--colorActive);
         border-right:1px solid rgba(7,17,27,0.1);
     }
     .hot .header .title{
@@ -101,7 +101,7 @@ import Cookie from '~/common/cookie.js';
         color:rgb(115,115,115);
         font-size:15px;
         &:hover{
-            color:$colorActive;
+            color:var(--colorActive);
         }
     }
 

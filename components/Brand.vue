@@ -1,8 +1,8 @@
 <template>
     <div class="brand">
         <div class="container">
-            <a class="brand_img" target="_blank" :href="brand[0].target" v-if="brand[0]">
-                <img :src="brand[0].img">
+            <a class="brand_img" target="_blank" :href="brand[index].target" v-if="brand.length>0" >
+                <img :src="brand[index].img">
             </a>
             <ul class="ul">
                 <li v-for="(item,key) in brand" @click="goBrand(key)" :key="key" :class="[key==index ? 'active' : '']"></li>
@@ -472,8 +472,8 @@ import Cookie from '~/common/cookie.js';
     }
 </script>
 
-<style lang="scss" scoped>
-@import "@/assets/css/basic.scss";
+<style scoped>
+@import "@/assets/css/basic.css";
     .m_brand{
         display: none;
     }
@@ -487,7 +487,7 @@ import Cookie from '~/common/cookie.js';
     .brand .operation .item{
         width:50px;
         height:50px;
-        background:$background;
+        background:var(--background);
         /*background:linear-gradient(45deg, rgba(0, 0, 0, .2) 50%, rgba(0, 0, 0, .8) 50%);*/
         line-height:50px;
         text-align: center;
@@ -500,7 +500,7 @@ import Cookie from '~/common/cookie.js';
         cursor:pointer;
         transition:0.5s;
         &:hover{
-            background:$backgroundActive;
+            background:var(--backgroundActive);
         }
     }
     .brand .operation .item.prev{
@@ -536,13 +536,13 @@ import Cookie from '~/common/cookie.js';
         transition:0.5s;
     }
     .brand .ul li:hover{
-        background:$background;
+        background:var(--background);
     }
     .brand .ul li.active{
         width:20px;
         border-radius: 10px;
         border:none;
-        background:$background;
+        background:var(--background);
     }
 
 @media screen and (max-width: 1199px) {

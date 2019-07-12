@@ -281,7 +281,7 @@ import {Notification,Message} from 'element-ui'
         },
         mounted(){
             this.call.disabled=isStorage('details_call_'+this.$route.params.id);
-            if(!Cookie.is( 'details_count_'+this.$route.params.id ) || true ){
+            if(!Cookie.is( 'details_count_'+this.$route.params.id ) ){
                 axios.get(this.$store.state.url.setReadCount,{
                     params:{
                         id:this.$route.params.id
@@ -289,7 +289,7 @@ import {Notification,Message} from 'element-ui'
                 }).then((res)=>{
                     if(res.data==1){
                         this.item.readCount++;
-                        Cookie.set('details_count_'+this.$route.params.id,true,'current');
+                        Cookie.set('details_count_'+this.$route.params.id,true);
                     }
                 });
             }
@@ -355,8 +355,8 @@ import {Notification,Message} from 'element-ui'
 </script>
 
 
-<style lang="scss" scoped>
-    @import "@/assets/css/basic.scss";
+<style scoped>
+    @import "@/assets/css/basic.css";
     .details{
         background:#fff;
         border-radius:4px;
@@ -377,8 +377,9 @@ import {Notification,Message} from 'element-ui'
         line-height:30px;
         font-weight: bold;
         font-size:20px;
-        background:rgb(106,230,120);
+        background:var(--background);
         cursor:pointer;
+        &:hover{ background:var(--backgroundActive);}
     }
     .details .title{
         text-align: center;
@@ -421,7 +422,7 @@ import {Notification,Message} from 'element-ui'
         width:90px;
         text-align:center;
         line-height:40px;
-        background:$background;
+        background:var(--background);
         color:#fff;
         letter-spacing: 0px;
         font-size:14px;
@@ -431,7 +432,7 @@ import {Notification,Message} from 'element-ui'
         outline: none;
         cursor:pointer;
         &:hover{
-            background:$backgroundActive;
+            background:var(--backgroundActive);
         }
     }
 
@@ -451,17 +452,16 @@ import {Notification,Message} from 'element-ui'
         margin-left:5px;
         border-radius:2px;
         cursor:pointer;
-        background:$background;
+        background:var(--background);
         transition:1s;
         &:hover{
-            background:$backgroundActive;
+            background:var(--backgroundActive);
         }
     }
     .details .link{
         margin-top:20px;
     }
     .details .link p{
-        height:30px;
         line-height:30px;
         font-size:14px;
         color:rgb(80,80,80);
@@ -470,7 +470,7 @@ import {Notification,Message} from 'element-ui'
         text-decoration:none;
         color:rgb(80,80,80);
         &:hover{
-            color:$colorActive;
+            color:var(--colorActive);
              text-decoration:underline ;
         }
     }
@@ -572,13 +572,13 @@ import {Notification,Message} from 'element-ui'
         width:100%;
         height:100%;
         border:none;
-        background:$background;
+        background:var(--background);
         color:#fff;
         font-size:15px;
         cursor:pointer;
         transition:1s;
         &:hover{
-            background:$backgroundActive;
+            background:var(--backgroundActive);
         }
     }
     .details .comment form button[type=submit].loading::before{
@@ -652,7 +652,7 @@ import {Notification,Message} from 'element-ui'
         width:165px;
         height:35px;
         color:#fff;
-        background:$background;
+        background:var(--background);
         border:none;
         cursor:pointer;
         transition:0.5s;
@@ -660,7 +660,7 @@ import {Notification,Message} from 'element-ui'
         margin:0 auto;
         margin-top:15px;
         &:hover{
-            background:$backgroundActive;
+            background:var(--backgroundActive);
         }
     }
     .details .commentList .getCommentMore.loading::before{
