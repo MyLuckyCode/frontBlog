@@ -107,7 +107,7 @@ import Cookie from '~/common/cookie.js';
                 let current=this.index;
                 this.index=goIndex;
 
-                this[arr[key]](current,goIndex);
+                this[arr[5]](current,goIndex);
 
             },
             next3d_six(current,next){

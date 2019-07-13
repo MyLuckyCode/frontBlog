@@ -4,8 +4,9 @@ import Vuex from 'vuex'
 Vue.use(Vuex);
 
 
-
-let blogUrl = 'http://2514z4n334.zicp.vip//smarty/admin_blog/';    //博客后台地址
+//http://zhang97444.imwork.net/works/demo9/ 为后台测试地址，可直接访问本站进行数据模拟
+//本站大量使用cookie缓存，如果修改模拟数据前台没有生效的话请删除cookie缓存
+let blogUrl = 'http://zhang97444.imwork.net/works/demo9/';    //博客后台地址
 let blogApiUrl=blogUrl+'index.php?a=ajax&m=';           //博客后台API地址
 let blogApiImageUrl=blogUrl+'index.php?a=images&uniqueId=';     //博客图片地址
 let blogApiStaticImageUrl=blogUrl+'upload/clippingImages/';     //博客静态图片地址
