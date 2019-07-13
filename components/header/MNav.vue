@@ -6,7 +6,7 @@
             <li class="web">
                 <nuxt-link :to="{name:'article-page',params:{page:1}}" exact :class="[urlName=='web' ? 'active' : '']">前端开发 <i class="icon-10 iconfont">&#xe65e;</i></nuxt-link>
                 <ul>
-                    <li v-for="(item,index) in web_list" :key="index"><nuxt-link :to="item.url">{{item.name}}</nuxt-link></li>
+                    <li v-for="(item,index) in web_list" :key="index"><nuxt-link :to="item.url" :class="[urlName==item.name ? 'active' : '']">{{item.name}}</nuxt-link></li>
                 </ul>
             </li>
             <li><nuxt-link :to="{name:'works'}" exact :class="[urlName=='works' ? 'active' : '']">个人案例</nuxt-link></li>
@@ -37,12 +37,13 @@
         computed:{
             urlName(){
                 let name=this.$route.name;
-
+				
                 if(name=='article-page'){
                     if(this.$route.query.type=='life'){
                         name='life';
                     }else {
-                        name='web';
+						if(this.$route.query.title!=undefined)name=this.$route.query.title;
+						else name='web';
                     }
                 }
                 return name;
