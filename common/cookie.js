@@ -32,6 +32,19 @@
 
     Cookie.prototype.get = function ( name ) {
         if (process.client) {
+			
+			let tempArr = document.cookie.split(';');
+			let cookieValue = undefined;
+			for(let i=0;i<tempArr.length;i++){
+				let temp = tempArr[i].split('=');
+				if(i>=1) temp[0]=temp[0].slice(1);
+				if(temp[0]==name){
+					cookieValue=temp[1];
+					break;
+				}
+			}
+			return decodeURIComponent( cookieValue );
+			/*
             let cookieName = encodeURIComponent( name ) + '=';
             let cookieStart = document.cookie.indexOf( cookieName );
             let cookieValue = undefined;
@@ -43,6 +56,7 @@
                 cookieValue = document.cookie.substring( cookieStart + cookieName.length, cookieEnd );
             }
             return decodeURIComponent( cookieValue );
+			*/
         }
     }
 

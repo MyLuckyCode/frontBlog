@@ -524,7 +524,6 @@ import Cookie from '~/common/cookie.js';
         bottom:20px;
         display: flex;
         transform: translateX(-50%);
-        z-index: 9999;
     }
     .brand .ul li{
         width:12px;

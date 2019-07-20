@@ -3,10 +3,14 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 Vue.use(Vuex);
 
+/*
+localhost/smarty/ 这个地址是我本地的，如果你要测试可以使用
+http://zhang97444.imwork.net/works/demo9/ 该地址为测试地址，可直接访问本站进行数据模拟
+先访问看看是不是能打开，因为我现在是内网穿透，有时候电脑没开机
+本站大量使用cookie缓存，如果修改模拟数据前台没有生效的话请删除cookie缓存
+*/
 
-//http://zhang97444.imwork.net/works/demo9/ 为后台测试地址，可直接访问本站进行数据模拟
-//本站大量使用cookie缓存，如果修改模拟数据前台没有生效的话请删除cookie缓存
-let blogUrl = 'http://zhang97444.imwork.net/works/demo9/';    //博客后台地址
+let blogUrl = 'http://localhost/smarty/admin_blog/';    //博客后台地址
 let blogApiUrl=blogUrl+'index.php?a=ajax&m=';           //博客后台API地址
 let blogApiImageUrl=blogUrl+'index.php?a=images&uniqueId=';     //博客图片地址
 let blogApiStaticImageUrl=blogUrl+'upload/clippingImages/';     //博客静态图片地址

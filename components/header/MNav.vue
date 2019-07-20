@@ -1,7 +1,7 @@
 <template>
-    <div class="m_nav" @touchmove.prevent>
+    <div class="m_nav" @touchstart="moveStart($event)" @touchmove="move($event)" ref="m_nav">
 
-        <ul>
+        <ul ref="m_nav_ul">
             <li><nuxt-link :to="{name:'index'}" exact :class="[urlName=='index' ? 'active' : '']"> 首页</nuxt-link></li>
             <li class="web">
                 <nuxt-link :to="{name:'article-page',params:{page:1}}" exact :class="[urlName=='web' ? 'active' : '']">前端开发 <i class="icon-10 iconfont">&#xe65e;</i></nuxt-link>
@@ -27,11 +27,32 @@
             return {
                 indexActiveFlag:true,
                 web_item_flag:false,
-                web_list:[]
+                web_list:[],
+				navY:0 //记录是向下滑动还是向上滑动，用于解决滑动穿透的bug
             }
         },
         methods:{
-
+			moveStart(event){
+				this.navY=event.touches[0].pageY
+			},
+			move(event){
+				if(!event.cancelable)return;
+				let currentY = event.touches[0].pageY;
+				let top=this.$refs.m_nav.scrollTop;
+				
+				if(currentY>this.navY){	
+					if(top==0){
+						event.preventDefault();
+					}
+				}else if(currentY<this.navY){
+					let navHeight=this.$refs.m_nav.clientHeight-50;
+					let ulHeight=this.$refs.m_nav_ul.clientHeight;
+					if((navHeight+top)>=ulHeight){
+						event.preventDefault();
+					}
+				}
+				
+			}
 
         },
         computed:{
@@ -93,8 +114,10 @@
         z-index: 12;
         transition:0.5s;
         transform: translateX(-161px);
+		overflow:scroll;
     }
-
+	.m_nav::-webkit-scrollbar {display:none}
+	
     .m_nav > ul > li{
 
         margin-left:10px;
