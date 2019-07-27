@@ -14,7 +14,7 @@ DateParser.prototype.getLocalTime = function(nS){   //转化时间格式
 //console.log(nS)
 	let targetDate
 	if(parseInt(nS) != 'number' ){
-		targetDate = new Date(nS);
+		targetDate = new Date(nS.replace(/\-/g,'/'));
 	}else{
 		targetDate = new Date(parseInt(nS));
 	}

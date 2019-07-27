@@ -8,7 +8,7 @@
             <div class="content">
                 <div class="p1">
                     <nuxt-link :to="{name:'article-page',params:{page:1},query:{type:item.nav,title:item.NavName}}"><span class="label" >{{item.NavName}} <i></i></span></nuxt-link>
-                    <nuxt-link :to="{name:'details-id',params:{id:item.id}}" class="ellipsis-1s"><span class="title">{{item.title}}</span></nuxt-link>
+                    <nuxt-link :to="{name:'details-id',params:{id:item.id}}" style="height:25px;line-height:25px;"><span class="ellipsis-1s title">{{item.title}}</span></nuxt-link>
                 </div>
                 <div class="p2">
                     {{item.source==1 ? '原创' : '转载'}} <span>·</span> {{item.author}}
@@ -119,13 +119,12 @@
 }
 .items .item .content .p1{
     display: flex;
-    min-width: 0;
+	min-width:0;
 }
 .items .item .content .p1 .label{
     display:inline-block;
-    vertical-align: middle;
     padding:3px 5px;
-    font-size:10px;
+    font-size:12px;
     color:#fff;
     font-weight:500;
     background:var(--background);
@@ -147,19 +146,25 @@
     border-top:5px solid transparent;
     border-bottom:5px solid transparent;
 }
+.items .item .content .p1 a:nth-child(1){
+	display:flex;
+}
 .items .item .content .p1 a:nth-child(2){
     flex:1;
+	display:flex;
+	align-items:center;
     padding-right:50px;
     min-width: 0;
 }
 .items .item .content .p1 .title{
-    max-width:100%;
+	width:100%;
     vertical-align: middle;
     margin-left:12px;
     color:rgb(115,115,115);
     font-size:18px;
     cursor:pointer;
     transition:1s;
+
     &:hover{
         color:var(--colorActive);
     }
@@ -222,7 +227,7 @@
     color:#fff;
     position:absolute;
     right:15px;
-    top:20px;
+	top:20px;
     background:#1890ff;
     opacity: 0.8;
     border-radius: 2px;
@@ -237,7 +242,6 @@
     display: block;
     position:absolute;
     left:42%;
-    top:16px;
     border:4px solid transparent;
     border-left:4px solid #1890ff;
     border-top:4px solid #1890ff;
@@ -251,15 +255,7 @@
             line-height: 25px;
         }
         .items .item .content .p1 a{
-            line-height: 0.30rem;
-        }
-        .items .item .content .p1 .title{
-            max-width:100%;
-            display: inline-block;
-            vertical-align: middle;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
+            //line-height: 0.30rem;
         }
         .m_nav{
             display: block;

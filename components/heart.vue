@@ -135,7 +135,8 @@
                 this.index++;
             },
             afterEnterHeart(el){
-                this.$set(this.heart[el.dataset.index],'flag',false);
+				let index=el.getAttribute('data-index');
+                this.$set(this.heart[index],'flag',false);
             },
             rgb(){ //颜色的随机生成
                 var str = 'rgba(' + parseInt( Math.random() * 256 ) + ',' + parseInt( Math.random() * 256 ) + ',' + parseInt( Math.random() * 256 ) + ',0.7)';

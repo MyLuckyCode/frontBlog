@@ -12,18 +12,18 @@
 </style>
 <script type="text/javascript">
     run();
-    window.onresize=run
+    window.onresize=run;
 
     function run(){
-        let htmlWidth = window.innerWidth;
+        var htmlWidth = window.innerWidth;
         //得到html的Dom元素
-        let htmlDom = document.getElementsByTagName('html')[0];
+        var htmlDom = document.getElementsByTagName('html')[0];
         //设置根元素字体大小
 
         if(htmlWidth>992){
             htmlDom.style.fontSize= '';
         }else {
-            let num = htmlWidth/7.5 ;
+            var num = htmlWidth/7.5 ;
             num = num > 60 ? 60 : num;
             htmlDom.style.fontSize= num+ 'px';
         }
