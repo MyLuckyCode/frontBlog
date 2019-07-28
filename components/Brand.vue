@@ -75,7 +75,7 @@ import Cookie from '~/common/cookie.js';
                 if(this.index>=(this.brand.length-1))this.index=-1;
                 let next=++this.index
                 let key = Math.round(Math.random() * (this.nextClick.length - 1))
-                this[this.nextClick[key]](current,next);
+                this[this.nextClick[4]](current,next);
             },
             prev(){
 
@@ -88,7 +88,7 @@ import Cookie from '~/common/cookie.js';
                 let prev=--this.index
 
                 let key = Math.round(Math.random() * (this.prevClick.length - 1))
-                this[this.prevClick[key]](current,prev);
+                this[this.prevClick[4]](current,prev);
             },
             transitionend(){
                 this.flag=true;

@@ -525,10 +525,10 @@ import {Notification,Message} from 'element-ui'
         color:rgb(106,230,120);
     }
     .details .comment form textarea{
+		display:block;
         background:rgb(245,245,245);
-        width:100%;
+		width:100%;
         height:90px;
-        flex:0 0 100%;
         resize:none;
         border:none;
         outline: none;
@@ -538,6 +538,7 @@ import {Notification,Message} from 'element-ui'
         transition:0.2s;
         margin-bottom:15px;
         color:rgb(80,80,80);
+		overflow:auto;
     }
     .details .comment form textarea:focus{
         background:rgb(233,233,233);
@@ -556,7 +557,6 @@ import {Notification,Message} from 'element-ui'
         height:100%;
         width:100%;
         background:rgb(245,245,245);
-
         border:none;
         padding-left:10px;
         padding-right:10px;

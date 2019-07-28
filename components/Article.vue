@@ -8,7 +8,7 @@
             <div class="content">
                 <div class="p1">
                     <nuxt-link :to="{name:'article-page',params:{page:1},query:{type:item.nav,title:item.NavName}}"><span class="label" >{{item.NavName}} <i></i></span></nuxt-link>
-                    <nuxt-link :to="{name:'details-id',params:{id:item.id}}" style="height:25px;line-height:25px;"><span class="ellipsis-1s title">{{item.title}}</span></nuxt-link>
+                    <nuxt-link :to="{name:'details-id',params:{id:item.id}}" style="height:25px;line-height:25px;"><span class="ellipsis-1s title" :title="item.title">{{item.title}}</span></nuxt-link>
                 </div>
                 <div class="p2">
                     {{item.source==1 ? '原创' : '转载'}} <span>·</span> {{item.author}}
@@ -126,6 +126,7 @@
     padding:3px 5px;
     font-size:12px;
     color:#fff;
+	line-height:150%;
     font-weight:500;
     background:var(--background);
     cursor:pointer;
@@ -152,7 +153,6 @@
 .items .item .content .p1 a:nth-child(2){
     flex:1;
 	display:flex;
-	align-items:center;
     padding-right:50px;
     min-width: 0;
 }
