@@ -117,24 +117,22 @@
     flex:1;
     display:flex;
     flex-direction:column;
-    justify-content: space-between;
+    justify-content: space-around;
     padding-left:12px;
-
+	
     color:rgb(115,115,115);
     font-size:14px;
 
 }
 .lately .items .item .content p.title{
-    flex:1;
     line-height:150%;
-    padding-top:5px;
+	height:43px;
     text-overflow: ellipsis;
     display:-webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     word-break:break-all;
-
     &:hover{
         color:var(--colorActive);
     }
@@ -143,7 +141,6 @@
 
 .lately .items .item .content p.time{
     font-size:10px;
-    padding-bottom:5px;
 }
 
 </style>

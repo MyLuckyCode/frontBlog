@@ -48,7 +48,10 @@
         },
         filters:{
             formatDate(time){
-                let date=new Date(time);
+				console.log(time)
+				if(time==undefined)return;
+				let date=new Date(time.replace(/\-/g,'/'));
+                //let date=new Date(time);
                 return formatDate(date,'YYYY-mm-dd');
             }
         }

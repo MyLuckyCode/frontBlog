@@ -20,7 +20,7 @@ import $ from 'jquery';
 import axios from 'axios';
 import Vue from 'vue'
 import Cookie from '~/common/cookie.js';
-
+import {getBrowerInfo} from '~/common/system.js';
 
     export default{
         data(){
@@ -34,7 +34,22 @@ import Cookie from '~/common/cookie.js';
             }
         },
         async mounted(){
-
+			
+			//ie浏览器
+			let isIE = getBrowerInfo().client.isIE; 
+			if(isIE){
+				this.nextClick=['next3d_five','next3d_six'];
+				this.prevClick=['prev3d_five'];
+			}
+			
+			//火狐浏览器
+			let isGecko = getBrowerInfo().client.isGecko; 
+			if(isGecko){
+				this.nextClick=['next3d_one','next3d_two','next3d_five','next3d_six'];
+				this.prevClick=['prev3d_one','prev3d_two','prev3d_five'];
+			}
+			
+			
             //this.interval=setInterval(this.next,3000)
             if (process.client) {
                 let htmlWidth = window.innerWidth;
@@ -60,13 +75,13 @@ import Cookie from '~/common/cookie.js';
                     this.brand=res.data
                 })
             }
+			
         },
         destroyed(){
             clearInterval(this.interval);
         },
         methods:{
             next(){
-             //   console.log( this.flag );
                 if(!this.flag)return;
                 clearInterval(this.interval);
                 this.flag=false;
@@ -75,10 +90,9 @@ import Cookie from '~/common/cookie.js';
                 if(this.index>=(this.brand.length-1))this.index=-1;
                 let next=++this.index
                 let key = Math.round(Math.random() * (this.nextClick.length - 1))
-                this[this.nextClick[4]](current,next);
+                this[this.nextClick[key]](current,next);
             },
             prev(){
-
                 if(!this.flag)return;
                 clearInterval(this.interval);
                 this.flag=false;
@@ -88,7 +102,7 @@ import Cookie from '~/common/cookie.js';
                 let prev=--this.index
 
                 let key = Math.round(Math.random() * (this.prevClick.length - 1))
-                this[this.prevClick[4]](current,prev);
+                this[this.prevClick[key]](current,prev);
             },
             transitionend(){
                 this.flag=true;
@@ -106,8 +120,7 @@ import Cookie from '~/common/cookie.js';
 
                 let current=this.index;
                 this.index=goIndex;
-
-                this[arr[5]](current,goIndex);
+                this['next3d_six'](current,goIndex);
 
             },
             next3d_six(current,next){
